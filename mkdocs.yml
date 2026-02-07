@@ -1,5 +1,6 @@
 site_name: Erida Documentation
-repo_url: https://github.com/Vecortys/Erida-14-DOCS
+site_url: https://vecortys.github.io/Erida-14-DOCS/
+repo_url: https://github.com/vecortys/Erida-14-DOCS/
 repo_name: Erida-14-DOCS
 
 theme:
