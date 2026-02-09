@@ -1,7 +1,4 @@
-html {
-  font-size: 20px;
-}
-
-.md-nav, .md-footer, .md-header__title {
-  font-size: 0.95rem;
+:root {
+    --md-typeset-font-size: 0.85rem;
+    --md-code-font-size: 0.85rem;
 }
