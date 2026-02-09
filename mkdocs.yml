@@ -21,7 +21,8 @@ theme:
     - content.code.annotate
     - content.code.select
     - content.code.copy
-
+    - content.tooltips
+    
 plugins:
   - search
   - git-revision-date-localized

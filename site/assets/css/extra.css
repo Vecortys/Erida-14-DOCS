@@ -1,12 +1,9 @@
 
+html {
+    font-size: 20px;
+}
+
 @media screen and (min-width: 76.25em) {
-    .md-sidebar--primary { 
-        width: 7rem !important;
-    }
-    
-    .md-sidebar--secondary {
-        width: 7rem !important;
-    }
     .md-grid {
         max-width: 1400px !important;
     }
@@ -15,6 +12,6 @@
 .md-nav__link,
 .md-nav__title,
 .md-nav__item {
-    font-size: 0.6rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.35;
 }
