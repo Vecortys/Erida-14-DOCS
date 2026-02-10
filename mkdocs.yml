@@ -18,16 +18,18 @@ theme:
     - search.highlight
     - search.share
     - navigation.footer
+    - navigation.sections
     - content.code.annotate
     - content.code.select
     - content.code.copy
     - content.tooltips
-    
+
 plugins:
   - search
   - git-revision-date-localized
   - git-authors
-
+  - glightbox
+  
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -47,15 +49,13 @@ extra_css:
 
 nav:
   - Главная: index.md
-  - Работа с Репозиторием: base_rules.md
-
-  - Среда Разработки:
-    - Установка: dev_env/installation.md
-    - Конфигурация: dev_env/configuration.md
+  - Среда Разработки: dev_env.md
+  - Политика Изменений: base_rules.md
 
   - Прототипы:
-    - YAML: prototypes/yaml.md
-    - Базовый Прототип: prototypes/base_proto.md
-    - Типы Прототипов: prototypes/types_proto.md
+    - Обучение:
+      - YAML: prototypes/yaml.md
+      - Базовый Прототип: prototypes/base_proto.md
+      - Типы Прототипов: prototypes/types_proto.md
     
 
