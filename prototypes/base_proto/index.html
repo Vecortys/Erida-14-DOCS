@@ -1037,7 +1037,7 @@
 </div>
 <h2 id="_1">Основные Понятия</h2>
 <p>YAML (.yml &amp; .yaml) - формат <a href="" title="Сериализация - процесс, при котором данные объекта представляются в виде последовательности байтов.">сериализации</a> данных, позволяющий записывать их в удобном и читаемом формате.  </p>
-<p>Прототип же, очевидно, является лишь записью в YAML файле. Рассмотрим его структуру:
+<p>Прототип же, очевидно, является лишь записью в .yml файле. Рассмотрим его структуру:
 </p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AccessBreakerInteQ</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">parent</span><span class="p">:</span><span class="w"> </span>
@@ -1057,8 +1057,8 @@
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Item</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">sprite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_Erida/Objects/Tools/access_breaker.rsi</span>
 </span></code></pre></div><p></p>
-<p>Любой прототип начинается с его типа. В данном случае - это entity. Самый распространённый из всех, ведь позволяет создавать игровые объекты.</p>
-<p>Рассмотрим каждое его поле:  </p>
+<p>Любой прототип начинается с его типа. В данном случае это entity. Самый распространённый из всех, ведь позволяет создавать игровые объекты.</p>
+<p>Пройдёмся по каждому полю:  </p>
 <table>
 <thead>
 <tr>
@@ -1069,19 +1069,19 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>id</code></td>
-<td style="text-align: left;">Идентификатор нашего прототипа. Он уникален для своего типа прототипа. При попытке создать такой же - произойдёт перезапись исходного.</td>
+<td style="text-align: left;">Идентификатор. Он уникален для своего типа прототипа. При попытке создать такой же - нам выдаст ошибку.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>parent</code></td>
-<td style="text-align: left;">Прототипы, от которых будет наследоваться текущий, то есть забирать все его свойства. Позволяет указывать как единичный, так и сразу множественный.</td>
+<td style="text-align: left;">Прототипы, от которых будет наследоваться текущий, то есть забирать все их свойства. В примере наследование <strong>множественное</strong>, однако оно необязательно должно быть таким.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>name</code></td>
-<td style="text-align: left;">Название объекта в игре. Обязательно в нижнем регистре!</td>
+<td style="text-align: left;">Название объекта в игре. Обязательно в нижнем регистре.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>description</code></td>
-<td style="text-align: left;">Описание при детальном осмотре. Обязательно начинается с заглавной.</td>
+<td style="text-align: left;">Описание при детальном осмотре. Обязательно начинается с заглавной буквы.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>suffix</code></td>
@@ -1093,6 +1093,22 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Множественный parent</p>
+<p>Многие прототипы используют устаревший метод записи наследования от нескольких прото - parent: [first, second, third]. Пользоваться им не рекомендуется.</p>
+</div>
+<p>Для удобной работы с компонентами рекомендуется установить расширение для VS Code: Robust YAML. Оно позволяет переходить в C# класс компонента после ctrl+клика.  </p>
+<p>Большинство компонентов имеет определённые переменные, которые вы можете редактировать в прототипе. Чтобы узнать их список, откройте .cs файл компонента и посмотрите на переменные, имеющие атрибут "Datafield".</p>
+<div class="admonition info">
+<p class="admonition-title">Атрибут</p>
+<p>Атрибуты в C# — это специальные метаданные, которые добавляются над классами, методами или свойствами в квадратных скобках для уточнения их поведения.</p>
+</div>
+<p>У него может присутствовать аргумент с кастомным названием, которое должно использоваться в прототипе. Например, в данном случае нужно будет указывать "sprite: abc/abc.rsi":
+</p><div class="language-C# highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">[DataField("sprite")]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">public</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">RsiPath</span><span class="p">;</span>
+</span></code></pre></div>
+В случае отсутствия онного берётся название переменной с первой буквой в нижнем регистре.<p></p>
+<p>Итак, мы наконец готовы написать свой первый прототип.</p>
 
 
 
